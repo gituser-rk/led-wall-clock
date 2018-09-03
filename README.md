@@ -50,7 +50,7 @@ sudo make install-python
 # Starting the Clock
 To start the clock as a daemon
 ```
-cd led-wall-clock
+cd led-wall-clock-iobroker
 sudo ./ledclock.py -d start
 ```
 # To Do
