@@ -2,6 +2,7 @@
 A RGB LED matrix wall clock controlled by a Raspberry Pi.
 Modyfied original project from jeffkub - removed temperature and humidity retrieval from a Internet site and changed to local retrieval from my iobroker smarthome platform. Localisation to Germany: changed the clock format to 24H, temperature to Celsius.
 The LOCALE setting of the Raspberry is used for the date display language.
+Using the WiFi module of the "RPi Zero W" for the network / Internet connection.
 
 
 # Parts List
@@ -17,9 +18,7 @@ Python libraries
 - daemonify
 - iobroker.simple-api adapter (http://www.iobroker.net/)
 - iobroker.web adapter (http://www.iobroker.net/)
-
-# RGB Matrix Hat Modification
-The brightness can be controlled by pulse-width-modulating the OE pin of the LED matrix.  Unfortunately, the hat does not have the PWM pin of the Raspberry Pi connected to the OE pin.  To correct this, jumper a wire between pins labeled 4 and 18 on the hat.
+- NTP client daemon needs to be enabled for automatic time sync.
 
 # RGB Matrix Library Build Instructions
 Clone this repository and submodules to your Raspberry Pi
