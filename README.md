@@ -18,7 +18,7 @@ Python libraries
 - daemonify
 - iobroker.simple-api adapter (http://www.iobroker.net/)
 - iobroker.web adapter (http://www.iobroker.net/)
-- NTP client daemon needs to be enabled for automatic time sync.
+- NTP client daemon needs to be installed+enabled for automatic time sync.
 
 # RGB Matrix Library Build Instructions
 Clone this repository and submodules to your Raspberry Pi
