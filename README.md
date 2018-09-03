@@ -5,9 +5,8 @@ Modyfied original project from jeffkub - changed temperature and humidity retrie
 
 # Parts List
 - [64x32 RGB LED Matrix - 5mm pitch](https://www.adafruit.com/products/2277)
-- [Adafruit RGB Matrix + Real Time Clock Hat](https://www.adafruit.com/product/2345)
-- Raspberry Pi 2 Model B
-- [Acrylic Mount Plate](http://www.ponoko.com/build-your-own/furniture/led-wall-clock-plate-13293#) ([with light sensor](http://www.ponoko.com/build-your-own/furniture/led-wall-clock-plate-rev2-13311))
+- RPI to HUB75 LED panel adapter kit (http://www.kurokesu.com/shop/led_panels/RPI-HUB75-P-3)
+- Raspberry Pi Zero W
 
 # Dependencies
 Python libraries
