@@ -4,7 +4,7 @@ Modyfied original project from jeffkub - changed temperature and humidity retrie
 
 
 # Parts List
-- [64x32 RGB LED Matrix - 5mm pitch](https://www.adafruit.com/products/2277)
+- 64x32 RGB LED Matrix - 3mm pitch (https://www.amazon.de/dp/B01ET1QNR4/ref=pe_3044161_185740101_TE_item)
 - RPI to HUB75 LED panel adapter kit (http://www.kurokesu.com/shop/led_panels/RPI-HUB75-P-3)
 - Raspberry Pi Zero W
 
