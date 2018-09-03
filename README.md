@@ -14,6 +14,8 @@ Python libraries
 - requests
 - apscheduler
 - daemonify
+- iobroker.simple-api adapter (http://www.iobroker.net/)
+- iobroker.web adapter (http://www.iobroker.net/)
 
 # RGB Matrix Hat Modification
 The brightness can be controlled by pulse-width-modulating the OE pin of the LED matrix.  Unfortunately, the hat does not have the PWM pin of the Raspberry Pi connected to the OE pin.  To correct this, jumper a wire between pins labeled 4 and 18 on the hat.
