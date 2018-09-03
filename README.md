@@ -21,8 +21,8 @@ The brightness can be controlled by pulse-width-modulating the OE pin of the LED
 # RGB Matrix Library Build Instructions
 Clone this repository and submodules to your Raspberry Pi
 ```
-git clone --recursive https://github.com/gituser-rk/led-wall-clock.git
-cd led-wall-clock/rpi-rgb-led-matrix
+git clone --recursive https://github.com/gituser-rk/led-wall-clock-iobroker.git
+cd led-wall-clock-iobroker/rpi-rgb-led-matrix
 ```
 Edit `lib/Makefile` and uncomment the following two DEFINES
 ```
