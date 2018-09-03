@@ -1,11 +1,12 @@
 import logging
 import requests
-from xml.etree import ElementTree
-
+#import json
+#from xml.etree import ElementTree
+logging.basicConfig(filename='/root/led-wall-clock/weather.log',level=logging.DEBUG)
 # URL's
-WEATHER_URL = "http://w1.weather.gov/xml/current_obs/display.php"
-FORECAST_URL = "http://graphical.weather.gov/xml/sample_products/browser_interface/ndfdBrowserClientByDay.php"
-
+TEMP_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.HEQ0110761.1.TEMPERATURE/"
+TEMP_WZ_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.OEQ1667692.2.ACTUAL_TEMPERATURE/"
+HUMIDITY_WZ_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.OEQ1667692.2.ACTUAL_HUMIDITY/"
 
 class Weather(object):
     def __init__(self, scheduler, zip, station):
@@ -13,26 +14,30 @@ class Weather(object):
         self._station = station
 
         self.cur_temp = 0.0
+        self.cur_temp_wz = 0.0
         self.high_temp = 0.0
         self.low_temp = 0.0
 
         self.update()
 
-        # Update weather every 15 minutes
-        scheduler.add_job(self.update, 'cron', minute='*/15')
+        # Update every 5 minutes
+        scheduler.add_job(self.update, 'cron', minute='*/5')
+
 
     def update(self):
-        logging.info("Updating weather")
+        logging.info("Updating ...")
+	temp_req = requests.get(TEMP_URL)
+	temp_nord = temp_req.text
+        temp_wz_req = requests.get(TEMP_WZ_URL)
+        temp_wz = temp_wz_req.text
+        humidity_wz_req = requests.get(HUMIDITY_WZ_URL)
+        humidity_wz = humidity_wz_req.text
 
-        weather_req = requests.get(WEATHER_URL, params={'stid': self._station})
-        if weather_req.ok:
-            weather = ElementTree.fromstring(weather_req.content)
-            self.cur_temp = float(weather.find("temp_f").text)
-            logging.info("Current temperature %1.1f" % self.cur_temp)
+	if temp_req.ok:
+	    self.cur_temp = float(temp_nord)
+            self.cur_temp_wz = float(temp_wz)
+            self.cur_humidity_wz = float(humidity_wz)
+            logging.info("Current temperature Nord %1.1f" % self.cur_temp)
+            logging.info("Current temperature WZ %1.1f" % self.cur_temp_wz)
+            logging.info("Current humidity WZ %1.1f" % self.cur_humidity_wz)
 
-        forecast_req = requests.get(FORECAST_URL, params={'zipCodeList': self._zip, 'format': '24 hourly', 'numDays': 1})
-        if forecast_req.ok:
-            forecast = ElementTree.fromstring(forecast_req.content)
-            self.high_temp = float(forecast.find(".//temperature[@type='maximum']/value[1]").text)
-            self.low_temp = float(forecast.find(".//temperature[@type='minimum']/value[1]").text)
-            logging.info("High temperature %1.1f, Low temperature %1.1f" % (self.high_temp, self.low_temp))
