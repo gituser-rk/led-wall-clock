@@ -1,7 +1,8 @@
 # led-wall-clock
-A fancy RGB LED matrix wall clock controlled by a Raspberry Pi.
+A RGB LED matrix wall clock controlled by a Raspberry Pi.
+Modyfied original project from jeffkub - changed temperature and humidity retrieval from a Internet site to local retrieval from my iobroker smarthome platform.
 
-![picture](https://cloud.githubusercontent.com/assets/8151645/14007063/6deb76d6-f149-11e5-8a30-1efc0c79715d.jpg)
+#![picture](https://cloud.githubusercontent.com/assets/8151645/14007063/6deb76d6-f149-11e5-8a30-1efc0c79715d.jpg)
 
 # Parts List
 - [64x32 RGB LED Matrix - 5mm pitch](https://www.adafruit.com/products/2277)
