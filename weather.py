@@ -2,8 +2,9 @@ import logging
 import requests
 #import json
 #from xml.etree import ElementTree
-logging.basicConfig(filename='/root/led-wall-clock/weather.log',level=logging.DEBUG)
-# URL's
+logging.basicConfig(filename='/root/led-wall-clock-iobroker/weather.log',level=logging.DEBUG)
+# URL's for value retrieval. One value per URL. Requires iobroker.simple-api and iobroker.web adapters
+# Todo: change value retrieval to mqtt subscriber
 TEMP_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.HEQ0110761.1.TEMPERATURE/"
 TEMP_WZ_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.OEQ1667692.2.ACTUAL_TEMPERATURE/"
 HUMIDITY_WZ_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.OEQ1667692.2.ACTUAL_HUMIDITY/"
