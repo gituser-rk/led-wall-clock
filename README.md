@@ -1,6 +1,6 @@
 # led-wall-clock
 A RGB LED matrix wall clock controlled by a Raspberry Pi.
-Modyfied original project from jeffkub - changed temperature and humidity retrieval from a Internet site to local retrieval from my iobroker smarthome platform.
+Modyfied original project from jeffkub - changed temperature and humidity retrieval from a Internet site to local retrieval from my iobroker smarthome platform. Localisation to German: changed the clock format to 24H, temperature to Celsius.
 
 
 # Parts List
