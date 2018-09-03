@@ -4,6 +4,7 @@ Modified original project from jeffkub - removed temperature and humidity retrie
 The LOCALE setting of the Raspberry is used for the date display language.
 Using the WiFi module of the "RPi Zero W" for the network / Internet connection.
 
+![Pic1](https://raw.githubusercontent.com/gituser-rk/led-wall-clock-iobroker/master/pics/IMG_9381.JPG)
 
 # Parts List
 - 64x32 RGB LED Matrix - 3mm pitch (https://www.amazon.de/dp/B01ET1QNR4/ref=pe_3044161_185740101_TE_item)
