@@ -7,8 +7,9 @@ class Dimmer(object):
         self._observer = ephem.Observer()
         self._observer.pressure = 0
         self._observer.horizon = '-6'
-        self._observer.lat = '38.262469'
-        self._observer.lon = '-85.648625'
+	# Falkensee:
+        self._observer.lat = '52.562044'
+        self._observer.lon = '13.07700030'
 
         self.brightness = 100
 
@@ -27,6 +28,8 @@ class Dimmer(object):
             # Morning is sooner, so it must be night
             logging.info("It is night time")
             self.brightness = 10
+            #self.brightness = 100
         else:
             logging.info("It is day time")
             self.brightness = 25
+            #self.brightness = 100
