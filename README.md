@@ -56,6 +56,6 @@ cd led-wall-clock-iobroker
 sudo ./ledclock.py -d start
 ```
 # To Do
-- change value retrieval from "simple-html" to mqtt-subscriber
+- change value retrieval from "iobroker.simple-api" to mqtt-subscriber
 - Move configuration to a separate file
 - Implement dimming based on some I2C ambient light sensor
