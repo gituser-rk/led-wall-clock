@@ -21,7 +21,7 @@ The brightness can be controlled by pulse-width-modulating the OE pin of the LED
 # RGB Matrix Library Build Instructions
 Clone this repository and submodules to your Raspberry Pi
 ```
-git clone --recursive https://github.com/jeffkub/led-wall-clock.git
+git clone --recursive https://github.com/gituser-rk/led-wall-clock.git
 cd led-wall-clock/rpi-rgb-led-matrix
 ```
 Edit `lib/Makefile` and uncomment the following two DEFINES
@@ -54,7 +54,6 @@ cd led-wall-clock
 sudo ./ledclock.py -d start
 ```
 # To Do
-- Use a more generic weather API
+- change value retrieval from "simple-html" to mqtt-subscriber
 - Move configuration to a separate file
-- Implement dimming based on TSL2591 light sensor
-- Add forecast screen (toggle on a timer)
+- Implement dimming based on some I2C ambient light sensor
