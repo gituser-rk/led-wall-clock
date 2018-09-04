@@ -1,4 +1,4 @@
-# led-wall-clock
+# led-wall-clock-iobroker
 A RGB LED matrix wall clock controlled by a Raspberry Pi.
 Modified original project from jeffkub - removed temperature and humidity retrieval from a Internet site and changed to local retrieval from my iobroker smarthome platform. Localisation to Germany: changed the clock format to 24H, temperature to Celsius.
 The LOCALE setting of the Raspberry is used for the date display language.
