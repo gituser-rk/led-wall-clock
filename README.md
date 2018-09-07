@@ -25,6 +25,7 @@ Python libraries
 ioBroker Adapters (http://www.iobroker.net/)
 - iobroker.simple-api 
 - iobroker.web (required by simple-api)
+
 Linux Platform (Raspian Lite)
 - NTP client daemon needs to be installed+enabled for automatic time sync.
 
