@@ -21,6 +21,7 @@ Python libraries
 - requests
 - apscheduler
 - daemonify
+
 ioBroker Adapters (http://www.iobroker.net/)
 - iobroker.simple-api 
 - iobroker.web (required by simple-api)
