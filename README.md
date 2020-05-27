@@ -16,6 +16,8 @@ Display color of temperature / humidity is changing depending from their values 
 - Raspberry Pi Zero W (https://www.pollin.de/p/raspberry-pi-zero-wh-mit-bestuecktem-header-810885)
 
 # Dependencies
+Linux Platform (Raspian Lite)
+- NTP client daemon needs to be installed+enabled for automatic time sync.
 Python libraries
 - [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix)
 - requests
@@ -26,8 +28,6 @@ ioBroker Adapters (http://www.iobroker.net/)
 - iobroker.simple-api 
 - iobroker.web (required by simple-api)
 
-Linux Platform (Raspian Lite)
-- NTP client daemon needs to be installed+enabled for automatic time sync.
 
 # RGB Matrix Library Build Instructions
 Clone this repository and submodules to your Raspberry Pi
