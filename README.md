@@ -35,7 +35,7 @@ ioBroker Adapters (http://www.iobroker.net/)
 # RGB Matrix Library Build Instructions
 Clone this repository and submodules to your Raspberry Pi
 ```
-apt install git python-dev
+apt install git python-dev python-pip
 cd /opt
 git clone --recursive https://github.com/gituser-rk/led-wall-clock-iobroker.git
 cd led-wall-clock-iobroker/rpi-rgb-led-matrix
@@ -45,11 +45,17 @@ Build and install the Python library
 ```
 make build-python
 sudo make install-python
+sudo pip install daemonify requests apscheduler ephem
 ```
 # Starting the Clock
+To start the clock for testing
+```
+cd /opt/led-wall-clock-iobroker
+sudo ./ledclock.py
+```
 To start the clock as a daemon
 ```
-cd led-wall-clock-iobroker
+cd /opt/led-wall-clock-iobroker
 sudo ./ledclock.py -d start
 ```
 # To Do
