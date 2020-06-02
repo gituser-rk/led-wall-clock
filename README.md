@@ -35,7 +35,7 @@ ioBroker Adapters (http://www.iobroker.net/)
 # RGB Matrix Library Build Instructions
 Clone this repository and submodules to your Raspberry Pi
 ```
-apt install git
+apt install git python-dev
 cd /opt
 git clone --recursive https://github.com/gituser-rk/led-wall-clock-iobroker.git
 cd led-wall-clock-iobroker/rpi-rgb-led-matrix
