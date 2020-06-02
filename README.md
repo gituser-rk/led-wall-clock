@@ -18,7 +18,9 @@ Display color of temperature / humidity is changing depending from their values 
 # Dependencies
 Linux Platform (Raspian Lite)
 - NTP client daemon needs to be installed+enabled for automatic time sync.
-
+```
+apt install ntp
+```
 Python libraries
 - [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix)
 - requests
