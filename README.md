@@ -14,11 +14,11 @@ Fetch data (temperature ...) from ioBroker and write to variables
 ## dimmer.py
 Set location (coordinates) and high/low brightness level 
 ## display.py
-Define what to be shown and where at the LED Matrix Display
+Define what to be shown and where at the LED Matrix Display. The pixel cordinates used in the "graphics.DrawText" command refer to the bottom left corner of the particular text element.
 
 # Parts List 
 - 64x32 RGB LED Matrix - 3mm pitch (https://www.amazon.de/dp/B01ET1QNR4/ref=pe_3044161_185740101_TE_item)
-- RPI to HUB75 LED panel adapter kit (http://www.kurokesu.com/shop/led_panels/RPI-HUB75-P-3)
+- passive RPI to HUB75 LED panel adapter kit (http://www.kurokesu.com/shop/led_panels/RPI-HUB75-P-3)
 - Raspberry Pi Zero WH (https://buyzero.de/products/raspberry-pi-zero-w?variant=32929081170)
 
 # Dependencies
