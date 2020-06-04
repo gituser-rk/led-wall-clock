@@ -47,8 +47,8 @@ class Display(threading.Thread):
         #Format to 2 digits and no subdigits
         sTempOutside = "%2.0f" % self._weather.TempOutside
         sTempInside = "%2.0f" % self._weather.TempInside
-        sHumidityOutside = "%2.0f" % self._weather.HumidityOutside
-        #sHumidityInside = "%2.0f" % self._weather.HumidityInside
+        #sHumidityOutside = "%2.0f" % self._weather.HumidityOutside
+        sHumidityInside = "%2.0f" % self._weather.HumidityInside
         if self._weather.TempOutside > -10.0 and self._weather.TempOutside < 10.0:
 		# temperature only one digit: move output to left (reduce space after 'A:'))
 		self._posOffset = -7
@@ -74,14 +74,14 @@ class Display(threading.Thread):
         	graphics.DrawText(canvas, self._font_tiny, 59, 28, self._color_temp, "o")
 	else:
 	# show humidity
-		if  self._weather.HumidityOutside<40 or self._weather.HumidityOutside > 60:
+		if  self._weather.HumidityInside<40 or self._weather.HumidityInside > 60:
         	# red color if not in optimum range
 			self._color_humidity = graphics.Color(255, 0, 0)
         	else:
 			# optimum range is 40 ... 60 % 
 			self._color_humidity = graphics.Color(255, 255, 255)
 
-        	graphics.DrawText(canvas, self._font_small, 47, 31, self._color_humidity, sHumidityOutside)
+        	graphics.DrawText(canvas, self._font_small, 47, 31, self._color_humidity, sHumidityInside)
         	graphics.DrawText(canvas, self._font_small, 59, 31, self._color_humidity, "%")
 
     def run(self):
