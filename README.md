@@ -10,9 +10,9 @@ Dimming is based on Sunset/Sunrise at your location.
 
 # Configuration
 ## weather.py
-Fetch data (temperature ...) and write to variables
+Fetch data (temperature ...) from ioBroker and write to variables
 ## dimmer.py
-Set location (coordinates) and high/low brigthness level 
+Set location (coordinates) and high/low brightness level 
 ## display.py
 Define what to be shown and where at the LED Matrix Display
 
@@ -22,7 +22,7 @@ Define what to be shown and where at the LED Matrix Display
 - Raspberry Pi Zero WH (https://buyzero.de/products/raspberry-pi-zero-w?variant=32929081170)
 
 # Dependencies
-Linux Platform (Raspian Lite)
+Linux Platform (Raspian Lite). The actual edition is Buster
 - NTP client daemon needs to be installed+enabled for automatic time sync.
 ```
 apt install ntp
@@ -33,8 +33,8 @@ Python libraries
 - apscheduler
 - daemonify
 
-ioBroker Adapters (https://iobroker.com/)
-- iobroker.simple-api 
+ioBroker adapters (https://iobroker.com/)
+- iobroker.simple-api
 - iobroker.web (required by simple-api)
 
 
