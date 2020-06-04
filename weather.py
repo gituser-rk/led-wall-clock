@@ -1,44 +1,45 @@
 import logging
 import requests
-#import json
-#from xml.etree import ElementTree
-logging.basicConfig(filename='/root/led-wall-clock-iobroker/weather.log',level=logging.DEBUG)
+
+logging.basicConfig(filename='/opt/led-wall-clock-iobroker/weather.log',level=logging.DEBUG)
 # URL's for value retrieval. One value per URL. Requires iobroker.simple-api and iobroker.web adapters
-# Todo: change value retrieval to mqtt subscriber
-TEMP_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.HEQ0110761.1.TEMPERATURE/"
-TEMP_WZ_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.OEQ1667692.2.ACTUAL_TEMPERATURE/"
-HUMIDITY_WZ_URL = "http://172.16.1.90:8087/getPlainValue/hm-rpc.0.OEQ1667692.2.ACTUAL_HUMIDITY/"
+
+TempOutsideUrl = "http://172.16.1.91:8087/getPlainValue/hm-rpc.0.HEQ0110761.1.TEMPERATURE/" # Sensor Nordseite
+TempInsideUrl = "http://172.16.1.91:8087/getPlainValue/hm-rpc.0.OEQ1667692.1.TEMPERATURE/" # Sensor Wohnbereich
+HumidityInsideUrl = "http://172.16.1.91:8087/getPlainValue/hm-rpc.0.OEQ1667692.1.HUMIDITY/" # Sensor Wohnbereich
+HumidityOutsideUrl = "http://172.16.1.91:8087/getPlainValue/hm-rpc.0.HEQ0110761.1.HUMIDITY/" # Sensor Nordseite
+
 
 class Weather(object):
     def __init__(self, scheduler, zip, station):
         self._zip = zip
         self._station = station
-
-        self.cur_temp = 0.0
-        self.cur_temp_wz = 0.0
-        self.high_temp = 0.0
-        self.low_temp = 0.0
-
         self.update()
-
         # Update every 5 minutes
         scheduler.add_job(self.update, 'cron', minute='*/5')
-
-
     def update(self):
         logging.info("Updating ...")
-	temp_req = requests.get(TEMP_URL)
-	temp_nord = temp_req.text
-        temp_wz_req = requests.get(TEMP_WZ_URL)
-        temp_wz = temp_wz_req.text
-        humidity_wz_req = requests.get(HUMIDITY_WZ_URL)
-        humidity_wz = humidity_wz_req.text
+        # HTTP value retrieval:
+        try:
+            rTempOutside = requests.get(TempOutsideUrl)
+            TempOutside = rTempOutside.text
+            rTempInside = requests.get(TempInsideUrl)
+            TempInside = rTempInside.text
+            rHumidityOutside = requests.get(TempOutsideUrl)
+            HumidityOutside = rHumidityOutside.text
+            rHumidityInside = requests.get(HumidityInsideUrl)
+            HumidityInside = rHumidityInside.text
+            logging.info("Values sucessfully retrieved")
+        #in case of failure write "99" into the variables
+        except:
+            TempOutside = 99
+            TempInside = 99
+            HumidityOutside = 99
+            HumidityInside = 99
+            logging.info("Error in retrieving values - setting all to '99'")
+        self.TempOutside = float(TempOutside)
+        self.TempInside = float(TempInside)
+        self.HumidityOutside = float(HumidityOutside)
+        self.HumidityInside = float(HumidityInside)
 
-	if temp_req.ok:
-	    self.cur_temp = float(temp_nord)
-            self.cur_temp_wz = float(temp_wz)
-            self.cur_humidity_wz = float(humidity_wz)
-            logging.info("Current temperature Nord %1.1f" % self.cur_temp)
-            logging.info("Current temperature WZ %1.1f" % self.cur_temp_wz)
-            logging.info("Current humidity WZ %1.1f" % self.cur_humidity_wz)
-
+	

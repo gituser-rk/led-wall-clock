@@ -1,0 +1,15 @@
+[Unit]
+Description=LEDclock
+After=multi-user.target
+ 
+[Service]
+Type=simple
+#Type=forking
+User=root
+Group=root
+WorkingDirectory=/opt/led-wall-clock-iobroker/
+ExecStart=/usr/bin/python /opt/led-wall-clock-iobroker/ledclock.py
+Restart=on-abort
+ 
+[Install]
+WantedBy=multi-user.target
