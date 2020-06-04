@@ -1,14 +1,12 @@
 # led-wall-clock-iobroker
 A RGB LED matrix wall clock controlled by a Raspberry Pi.
-Modified original project from jeffkub - removed temperature and humidity retrieval from a Internet site and changed to local retrieval from my iobroker smarthome platform. Localisation to Germany: changed the clock format to 24H, temperature to Celsius.
+Modified original project from jeffkub - removed temperature and humidity retrieval from a Internet site and changed to retrieval from my local ioBroker smarthome platform (https://iobroker.com). Localisation: changed the clock format to 24H, temperature to Celsius.
 The LOCALE setting of the Raspberry is used for the date display language.
 Using the WiFi module of the "RPi Zero W" for the network / Internet connection.
 Display color of temperature / humidity is changing depending from their values (values out of "healthy" range --> red color).
+Dimming is time-based.
 
 ![Pic1](pics/IMG_9381.PNG)
-![Pic2](pics/IMG_9382.PNG)
-![Pic3](pics/IMG_9383.PNG)
-![Pic4](pics/IMG_9385.PNG)
 
 # Parts List
 - 64x32 RGB LED Matrix - 3mm pitch (https://www.amazon.de/dp/B01ET1QNR4/ref=pe_3044161_185740101_TE_item)
@@ -27,7 +25,7 @@ Python libraries
 - apscheduler
 - daemonify
 
-ioBroker Adapters (http://www.iobroker.net/)
+ioBroker Adapters (https://iobroker.com/)
 - iobroker.simple-api 
 - iobroker.web (required by simple-api)
 
@@ -58,7 +56,20 @@ To start the clock as a daemon
 cd /opt/led-wall-clock-iobroker
 sudo ./ledclock.py -d start
 ```
+# Autostart
+I've created a Systemd service unit file "ledclock.service". Here is how to install and activate the service:
+```
+cd /opt/led-wall-clock-iobroker
+cp ledclock.service /etc/systemd/system/
+chmod 644 /etc/systemd/system/ledclock.service
+systemctl daemon-reload
+systemctl enable ledclock.service
+systemctl start ledclock.service
+```
+![Pic2](pics/IMG_9382.PNG)
+![Pic3](pics/IMG_9383.PNG)
+![Pic4](pics/IMG_9385.PNG)
+
 # To Do
-- change value retrieval from "iobroker.simple-api" to mqtt-subscriber
 - Move configuration to a separate file
 - Implement dimming based on some I2C ambient light sensor
