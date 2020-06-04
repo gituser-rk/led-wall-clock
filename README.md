@@ -4,11 +4,19 @@ Modified original project from jeffkub - removed temperature and humidity retrie
 The LOCALE setting of the Raspberry is used for the date display language.
 Using the WiFi module of the "RPi Zero W" for the network / Internet connection.
 Display color of temperature / humidity is changing depending from their values (values out of "healthy" range --> red color).
-Dimming is time-based.
+Dimming is based on Sunset/Sunrise at your location.
 
 ![Pic1](pics/IMG_9381.PNG)
 
-# Parts List
+# Configuration
+## weather.py
+Fetch data (temperature ...) and write to variables
+## dimmer.py
+Set location (coordinates) and high/low brigthness level 
+## display.py
+Define what to be shown and where at the LED Matrix Display
+
+# Parts List 
 - 64x32 RGB LED Matrix - 3mm pitch (https://www.amazon.de/dp/B01ET1QNR4/ref=pe_3044161_185740101_TE_item)
 - RPI to HUB75 LED panel adapter kit (http://www.kurokesu.com/shop/led_panels/RPI-HUB75-P-3)
 - Raspberry Pi Zero WH (https://buyzero.de/products/raspberry-pi-zero-w?variant=32929081170)
